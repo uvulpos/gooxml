@@ -118,13 +118,13 @@ func (r Run) addField(code string, fmt string, cachedResult string) {
 	ic = r.newIC()
 	ic.InstrText = wml.NewCT_Text()
 	ic.InstrText.Content = instr
-	// Field switches are space separated; without xml:space="preserve" a
-	// conformant XML processor may collapse the whitespace and corrupt the
-	// field code.
-	if gooxml.NeedsSpacePreserve(instr) {
-		p := "preserve"
-		ic.InstrText.SpaceAttr = &p
-	}
+	// Field switches are space separated, e.g. `TOC \o "1-3" \h`; the spaces
+	// are purely internal, so gooxml.NeedsSpacePreserve (which only looks at
+	// leading/trailing whitespace) would never flag them. Word itself always
+	// writes xml:space="preserve" on instrText, so set it unconditionally
+	// here rather than relying on that leading/trailing heuristic.
+	preserve := "preserve"
+	ic.InstrText.SpaceAttr = &preserve
 
 	// The "separate" marker delimits the field definition from its cached
 	// result and is required for the field to render before recalculation.
