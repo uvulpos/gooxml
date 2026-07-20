@@ -56,6 +56,7 @@ DOCX/XLSX/PPTX.
 
 - [Simple Text Formatting](https://github.com/baliance/gooxml/tree/master/_examples/document/simple) Text font colors, sizes, highlighting, etc.
 - [Auto Generated Table of Contents](https://github.com/baliance/gooxml/tree/master/_examples/document/toc) Creating document headings with an auto generated TOC based off of the headingds
+- [Pre-filled Table of Contents](https://github.com/baliance/gooxml/tree/master/_examples/document/toc-generate) Generating a TOC whose entries (heading text, hyperlinks and page numbers) are already written into the document via `Document.GenerateTableOfContents`, so the directory is populated without waiting for the reader to recalculate the field.
 - [Floating Image](https://github.com/baliance/gooxml/tree/master/_examples/document/image) Placing an image somewhere on a page, absolutely positioned with different text wrapping.
 - [Header & Footer](https://github.com/baliance/gooxml/tree/master/_examples/document/header-footer) Creating headers and footers including page numbering.
 - [Multiple Headers & Footers](https://github.com/baliance/gooxml/tree/master/_examples/document/header-footer-multiple) Using different headers and footers depending on document section.
