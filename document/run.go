@@ -11,6 +11,7 @@ import (
 	"bytes"
 	"errors"
 	"math/rand"
+	"strings"
 
 	"github.com/uvulpos/gooxml"
 	"github.com/uvulpos/gooxml/common"
@@ -84,20 +85,61 @@ func (r Run) AddTab() {
 }
 
 // AddFieldWithFormatting adds a field (automatically computed text) to the
-// document with field specifc formatting.
+// document with field specific formatting.
+//
+// A complete field consists of three field-character regions: "begin",
+// "separate" and "end". The content between "separate" and "end" is the field's
+// cached result, which consumers (Word, LibreOffice, ...) display until the
+// field is recalculated. Previous versions emitted only "begin" and "end",
+// producing a malformed field whose region collapsed to nothing in readers that
+// do not recalculate fields on open - resulting, for example, in an empty table
+// of contents. The "separate" marker is now always emitted so the field region
+// is well-formed, and the instruction text is written with xml:space="preserve"
+// so field switches (e.g. `TOC \o "1-3" \h`) are not corrupted by whitespace
+// normalization.
 func (r Run) AddFieldWithFormatting(code string, fmt string) {
+	r.addField(code, fmt, "")
+}
+
+// addField is the shared implementation behind AddFieldWithFormatting and the
+// higher-level field helpers. When cachedResult is non-empty it is inserted as
+// the field's placeholder result between the "separate" and "end" markers.
+func (r Run) addField(code string, fmt string, cachedResult string) {
 	ic := r.newIC()
 	ic.FldChar = wml.NewCT_FldChar()
 	ic.FldChar.FldCharTypeAttr = wml.ST_FldCharTypeBegin
 	ic.FldChar.DirtyAttr = &sharedTypes.ST_OnOff{}
 	ic.FldChar.DirtyAttr.Bool = gooxml.Bool(true)
 
+	instr := code
+	if fmt != "" {
+		instr = code + " " + fmt
+	}
 	ic = r.newIC()
 	ic.InstrText = wml.NewCT_Text()
-	if fmt != "" {
-		ic.InstrText.Content = code + " " + fmt
-	} else {
-		ic.InstrText.Content = code
+	ic.InstrText.Content = instr
+	// Field switches are space separated, e.g. `TOC \o "1-3" \h`; the spaces
+	// are purely internal, so gooxml.NeedsSpacePreserve (which only looks at
+	// leading/trailing whitespace) would never flag them. Word itself always
+	// writes xml:space="preserve" on instrText, so set it unconditionally
+	// here rather than relying on that leading/trailing heuristic.
+	preserve := "preserve"
+	ic.InstrText.SpaceAttr = &preserve
+
+	// The "separate" marker delimits the field definition from its cached
+	// result and is required for the field to render before recalculation.
+	ic = r.newIC()
+	ic.FldChar = wml.NewCT_FldChar()
+	ic.FldChar.FldCharTypeAttr = wml.ST_FldCharTypeSeparate
+
+	if cachedResult != "" {
+		ic = r.newIC()
+		ic.T = wml.NewCT_Text()
+		ic.T.Content = cachedResult
+		if gooxml.NeedsSpacePreserve(cachedResult) {
+			p := "preserve"
+			ic.T.SpaceAttr = &p
+		}
 	}
 
 	ic = r.newIC()
@@ -108,6 +150,63 @@ func (r Run) AddFieldWithFormatting(code string, fmt string) {
 // AddField adds a field (automatically computed text) to the document.
 func (r Run) AddField(code string) {
 	r.AddFieldWithFormatting(code, "")
+}
+
+// FieldTOCOptions controls the switches used when inserting a table of contents
+// field via AddFieldTOC.
+type FieldTOCOptions struct {
+	// OutlineLevels is the inclusive range of heading outline levels to include,
+	// e.g. "1-3". Emitted as the \o switch. Defaults to "1-3" when empty.
+	OutlineLevels string
+	// Hyperlink makes each entry a clickable hyperlink to its heading (the \h
+	// switch).
+	Hyperlink bool
+	// HidePageNumbersInWeb hides tab leaders and page numbers in web layout view
+	// (the \z switch).
+	HidePageNumbersInWeb bool
+	// UseAppliedParagraphOutlineLevel includes paragraphs carrying an applied
+	// outline level that are not built-in heading styles (the \u switch).
+	UseAppliedParagraphOutlineLevel bool
+}
+
+// DefaultTOCOptions returns the option set used for a typical table of contents:
+// a hyperlinked TOC built from heading levels 1 through 3, i.e.
+// `TOC \o "1-3" \h \z \u`.
+func DefaultTOCOptions() FieldTOCOptions {
+	return FieldTOCOptions{
+		OutlineLevels:                   "1-3",
+		Hyperlink:                       true,
+		HidePageNumbersInWeb:            true,
+		UseAppliedParagraphOutlineLevel: true,
+	}
+}
+
+// switches renders the option set as a TOC field switch string.
+func (o FieldTOCOptions) switches() string {
+	levels := o.OutlineLevels
+	if levels == "" {
+		levels = "1-3"
+	}
+	parts := []string{`\o "` + levels + `"`}
+	if o.Hyperlink {
+		parts = append(parts, `\h`)
+	}
+	if o.HidePageNumbersInWeb {
+		parts = append(parts, `\z`)
+	}
+	if o.UseAppliedParagraphOutlineLevel {
+		parts = append(parts, `\u`)
+	}
+	return strings.Join(parts, " ")
+}
+
+// AddFieldTOC inserts a well-formed table of contents field using the supplied
+// options. The field carries a placeholder result so it renders in readers that
+// do not recalculate fields on open; call
+// Document.Settings.SetUpdateFieldsOnOpen(true) to have Word rebuild the entries
+// (headings and page numbers) when the document is opened.
+func (r Run) AddFieldTOC(opts FieldTOCOptions) {
+	r.addField(FieldTOC, opts.switches(), "Right-click to update this table of contents.")
 }
 
 // Properties returns the run properties.

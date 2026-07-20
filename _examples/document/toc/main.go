@@ -15,8 +15,11 @@ func main() {
 	// Force the TOC to update upon opening the document
 	doc.Settings.SetUpdateFieldsOnOpen(true)
 
-	// Add a TOC
-	doc.AddParagraph().AddRun().AddField(document.FieldTOC)
+	// Add a hyperlinked table of contents built from heading levels 1-3. The
+	// field is inserted well-formed (with a separate marker and a placeholder
+	// result) so it also renders in readers that do not recalculate fields on
+	// open.
+	doc.AddParagraph().AddRun().AddFieldTOC(document.DefaultTOCOptions())
 	// followed by a page break
 	doc.AddParagraph().Properties().AddSection(wml.ST_SectionMarkNextPage)
 
