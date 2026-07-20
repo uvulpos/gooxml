@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sdowns/gooxml"
+	"github.com/uvulpos/gooxml"
 )
 
 // constants used when formatting generic values to determine when to start

@@ -8,9 +8,9 @@
 package presentation
 
 import (
-	"github.com/sdowns/gooxml/drawing"
-	"github.com/sdowns/gooxml/schema/soo/dml"
-	"github.com/sdowns/gooxml/schema/soo/pml"
+	"github.com/uvulpos/gooxml/drawing"
+	"github.com/uvulpos/gooxml/schema/soo/dml"
+	"github.com/uvulpos/gooxml/schema/soo/pml"
 )
 
 // TextBox is a text box within a slide.

@@ -2,9 +2,9 @@
 package main
 
 import (
-	"github.com/sdowns/gooxml/document"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml/document"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 var lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lobortis, lectus dictum feugiat tempus, sem neque finibus enim, sed eleifend sem nunc ac diam. Vestibulum tempus sagittis elementum`

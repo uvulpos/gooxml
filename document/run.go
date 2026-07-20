@@ -13,13 +13,13 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/common"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/schema/soo/dml"
-	pic "github.com/sdowns/gooxml/schema/soo/dml/picture"
-	"github.com/sdowns/gooxml/schema/soo/ofc/sharedTypes"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/common"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/schema/soo/dml"
+	pic "github.com/uvulpos/gooxml/schema/soo/dml/picture"
+	"github.com/uvulpos/gooxml/schema/soo/ofc/sharedTypes"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 // Run is a run of text within a paragraph that shares the same formatting.

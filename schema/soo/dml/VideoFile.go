@@ -12,7 +12,7 @@ package dml
 import (
 	"encoding/xml"
 
-	"github.com/sdowns/gooxml"
+	"github.com/uvulpos/gooxml"
 )
 
 type VideoFile struct {

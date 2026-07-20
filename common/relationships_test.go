@@ -13,9 +13,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/sdowns/gooxml/common"
-	"github.com/sdowns/gooxml/testhelper"
-	"github.com/sdowns/gooxml/zippkg"
+	"github.com/uvulpos/gooxml/common"
+	"github.com/uvulpos/gooxml/testhelper"
+	"github.com/uvulpos/gooxml/zippkg"
 )
 
 func TestRelationshipsUnmarshal(t *testing.T) {

@@ -10,16 +10,16 @@ package spreadsheet
 import (
 	"fmt"
 
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/chart"
-	"github.com/sdowns/gooxml/color"
-	"github.com/sdowns/gooxml/common"
-	"github.com/sdowns/gooxml/measurement"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/chart"
+	"github.com/uvulpos/gooxml/color"
+	"github.com/uvulpos/gooxml/common"
+	"github.com/uvulpos/gooxml/measurement"
 
-	"github.com/sdowns/gooxml/schema/soo/dml"
-	c "github.com/sdowns/gooxml/schema/soo/dml/chart"
-	crt "github.com/sdowns/gooxml/schema/soo/dml/chart"
-	sd "github.com/sdowns/gooxml/schema/soo/dml/spreadsheetDrawing"
+	"github.com/uvulpos/gooxml/schema/soo/dml"
+	c "github.com/uvulpos/gooxml/schema/soo/dml/chart"
+	crt "github.com/uvulpos/gooxml/schema/soo/dml/chart"
+	sd "github.com/uvulpos/gooxml/schema/soo/dml/spreadsheetDrawing"
 )
 
 // Drawing is a drawing overlay on a sheet.  Only a single drawing is allowed

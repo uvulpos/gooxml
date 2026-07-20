@@ -13,9 +13,9 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/schema/soo/ofc/math"
-	"github.com/sdowns/gooxml/schema/soo/ofc/sharedTypes"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/schema/soo/ofc/math"
+	"github.com/uvulpos/gooxml/schema/soo/ofc/sharedTypes"
 )
 
 type CT_Hyperlink struct {

@@ -8,9 +8,9 @@
 package document
 
 import (
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/schema/soo/ofc/sharedTypes"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/schema/soo/ofc/sharedTypes"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 // Numbering is the document wide numbering styles contained in numbering.xml.

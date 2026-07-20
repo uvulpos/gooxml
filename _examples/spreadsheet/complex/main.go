@@ -6,12 +6,12 @@ import (
 	"log"
 	"math/rand"
 
-	"github.com/sdowns/gooxml/chart"
-	"github.com/sdowns/gooxml/color"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/spreadsheet"
+	"github.com/uvulpos/gooxml/chart"
+	"github.com/uvulpos/gooxml/color"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/spreadsheet"
 
-	"github.com/sdowns/gooxml/schema/soo/sml"
+	"github.com/uvulpos/gooxml/schema/soo/sml"
 )
 
 func main() {

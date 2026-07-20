@@ -9,7 +9,7 @@
 
 package chartDrawing
 
-import "github.com/sdowns/gooxml"
+import "github.com/uvulpos/gooxml"
 
 func b2i(b bool) uint8 {
 	if b {

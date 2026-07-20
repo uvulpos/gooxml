@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/sdowns/gooxml/spreadsheet"
+	"github.com/uvulpos/gooxml/spreadsheet"
 
-	"github.com/sdowns/gooxml/schema/soo/sml"
+	"github.com/uvulpos/gooxml/schema/soo/sml"
 )
 
 func main() {

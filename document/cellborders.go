@@ -8,9 +8,9 @@
 package document
 
 import (
-	"github.com/sdowns/gooxml/color"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml/color"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 // CellBorders are the borders for an individual

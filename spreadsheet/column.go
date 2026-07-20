@@ -8,9 +8,9 @@
 package spreadsheet
 
 import (
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/schema/soo/sml"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/schema/soo/sml"
 )
 
 // Column represents a column within a sheet. It's only used for formatting

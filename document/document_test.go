@@ -11,9 +11,9 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/sdowns/gooxml/common"
-	"github.com/sdowns/gooxml/document"
-	"github.com/sdowns/gooxml/testhelper"
+	"github.com/uvulpos/gooxml/common"
+	"github.com/uvulpos/gooxml/document"
+	"github.com/uvulpos/gooxml/testhelper"
 )
 
 func TestSimpleDoc(t *testing.T) {

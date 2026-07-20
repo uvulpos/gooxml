@@ -1,18 +1,18 @@
 language: go
 go:
-        - 1.8.x
-        - 1.9.x
+  - 1.8.x
+  - 1.9.x
 
 install:
-        - mkdir -p $HOME/gopath/src/baliance.com/
-        - ln -s $HOME/gopath/src/github.com/baliance/gooxml $HOME/gopath/src/github.com/sdowns/gooxml
+  - mkdir -p $HOME/gopath/src/baliance.com/
+  - ln -s $HOME/gopath/src/github.com/baliance/gooxml $HOME/gopath/src/github.com/uvulpos/gooxml
 
 script:
-        - cd $HOME/gopath/src/github.com/sdowns/gooxml
-        - ./build-examples.sh
-        - go vet ./...
-        - go test ./...
-        - GOFMT=$(gofmt -d -s .) && echo $GOFMT && test -z "$GOFMT"
+  - cd $HOME/gopath/src/github.com/uvulpos/gooxml
+  - ./build-examples.sh
+  - go vet ./...
+  - go test ./...
+  - GOFMT=$(gofmt -d -s .) && echo $GOFMT && test -z "$GOFMT"
 
 after_success:
-        - ./test-coverage.sh
+  - ./test-coverage.sh

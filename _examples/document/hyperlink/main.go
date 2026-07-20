@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/sdowns/gooxml/color"
-	"github.com/sdowns/gooxml/document"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml/color"
+	"github.com/uvulpos/gooxml/document"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 func main() {
