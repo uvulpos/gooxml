@@ -8,10 +8,10 @@
 package document
 
 import (
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/color"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/color"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 // TableBorders allows manipulation of borders on a table.

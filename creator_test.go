@@ -15,10 +15,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sdowns/gooxml"
+	"github.com/uvulpos/gooxml"
 
-	"github.com/sdowns/gooxml/schema/soo/wml"
-	"github.com/sdowns/gooxml/zippkg"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml/zippkg"
 )
 
 func TestCreatorUnknownType(t *testing.T) {

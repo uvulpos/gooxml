@@ -15,8 +15,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/schema/soo/dml"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/schema/soo/dml"
 )
 
 type CT_Comment struct {

@@ -11,13 +11,13 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/sdowns/gooxml"
+	"github.com/uvulpos/gooxml"
 
-	"github.com/sdowns/gooxml/common"
-	"github.com/sdowns/gooxml/measurement"
-	"github.com/sdowns/gooxml/schema/soo/dml"
+	"github.com/uvulpos/gooxml/common"
+	"github.com/uvulpos/gooxml/measurement"
+	"github.com/uvulpos/gooxml/schema/soo/dml"
 
-	"github.com/sdowns/gooxml/schema/soo/pml"
+	"github.com/uvulpos/gooxml/schema/soo/pml"
 )
 
 type Slide struct {

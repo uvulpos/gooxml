@@ -14,11 +14,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/sdowns/gooxml/schema/soo/sml"
+	"github.com/uvulpos/gooxml/schema/soo/sml"
 
-	"github.com/sdowns/gooxml/spreadsheet"
-	"github.com/sdowns/gooxml/testhelper"
-	"github.com/sdowns/gooxml/zippkg"
+	"github.com/uvulpos/gooxml/spreadsheet"
+	"github.com/uvulpos/gooxml/testhelper"
+	"github.com/uvulpos/gooxml/zippkg"
 )
 
 func TestSimpleWorkbook(t *testing.T) {

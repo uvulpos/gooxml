@@ -14,11 +14,11 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/sdowns/gooxml"
-	"github.com/sdowns/gooxml/schema/soo/ofc/sharedTypes"
-	"github.com/sdowns/gooxml/schema/urn/schemas_microsoft_com/office/excel"
-	"github.com/sdowns/gooxml/schema/urn/schemas_microsoft_com/office/powerpoint"
-	"github.com/sdowns/gooxml/schema/urn/schemas_microsoft_com/office/word"
+	"github.com/uvulpos/gooxml"
+	"github.com/uvulpos/gooxml/schema/soo/ofc/sharedTypes"
+	"github.com/uvulpos/gooxml/schema/urn/schemas_microsoft_com/office/excel"
+	"github.com/uvulpos/gooxml/schema/urn/schemas_microsoft_com/office/powerpoint"
+	"github.com/uvulpos/gooxml/schema/urn/schemas_microsoft_com/office/word"
 )
 
 type CT_Oval struct {
