@@ -167,6 +167,10 @@ type FieldTOCOptions struct {
 	// UseAppliedParagraphOutlineLevel includes paragraphs carrying an applied
 	// outline level that are not built-in heading styles (the \u switch).
 	UseAppliedParagraphOutlineLevel bool
+	// IncludePageNumbers controls whether generated entries carry a trailing tab
+	// leader and a PAGEREF page number. It only affects the entries produced by
+	// Document.GenerateTableOfContents; the field switches are unaffected.
+	IncludePageNumbers bool
 }
 
 // DefaultTOCOptions returns the option set used for a typical table of contents:
@@ -178,6 +182,7 @@ func DefaultTOCOptions() FieldTOCOptions {
 		Hyperlink:                       true,
 		HidePageNumbersInWeb:            true,
 		UseAppliedParagraphOutlineLevel: true,
+		IncludePageNumbers:              true,
 	}
 }
 

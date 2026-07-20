@@ -10,8 +10,8 @@ package document_test
 import (
 	"testing"
 
-	"github.com/sdowns/gooxml/document"
-	"github.com/sdowns/gooxml/schema/soo/wml"
+	"github.com/uvulpos/gooxml/document"
+	"github.com/uvulpos/gooxml/schema/soo/wml"
 )
 
 // fldCharTypes returns the ordered list of field-character types in a run.
